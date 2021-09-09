@@ -1,24 +1,23 @@
 from django.contrib import admin
-from .models import Home,About,Profile,Category,Skills,Portfolio
+from .models import Home, About, Profile, Category, Skills, Portfolio
 
 
-# Register your models here.
-
+# Home
 admin.site.register(Home)
 
-#about
 
+# About
 class ProfileInline(admin.TabularInline):
-    model= Profile
+    model = Profile
     extra = 1
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    inlines = [
+     inlines = [
         ProfileInline,
     ]
 
-#skills
+# Skills
 class SkillsInline(admin.TabularInline):
     model = Skills
     extra = 2
@@ -28,6 +27,7 @@ class CategoryAdmin(admin.ModelAdmin):
      inlines = [
         SkillsInline,
     ]
+
 
 # Portfolio
 admin.site.register(Portfolio)

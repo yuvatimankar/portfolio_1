@@ -40,15 +40,17 @@ class Category(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name="skill"
-        verbose_name_plural="skills"
+        verbose_name='Skill'
+        verbose_name_plural='Skills'
 
     def __str__(self):
-        self.name
+        return self.name
 
 class Skills(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=20)
+
+    
 
 #portfolio section
 
